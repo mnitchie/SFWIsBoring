@@ -1,0 +1,51 @@
+.message {
+    font-size: 15px;
+    font-family: "NotoSansJP,Slack-Lato,appleLogo,sans-serif";
+    padding: 6px 0;
+}
+
+.message-gutter {
+    width: 70px;
+    padding-right: 8px;
+    float: left;
+}
+
+.image-container {
+    height: 36px;
+    width: 36px;
+    line-height: 36px;
+    padding-left: 34px;
+}
+
+img {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.message-content {
+    margin-left: 70px;
+    overflow: hidden;
+}
+
+.message-content-header {
+    margin: 0 0 -5px;
+}
+
+.sender {
+    color: #2c2d30;
+    font-weight: 900;
+}
+
+.timestamp {
+    font-size: 12px;
+    color: #717274;
+}
+
+.message-body {
+    line-height: 1.46668;
+    margin: 8px 0 -4px;
+    display: inline-block;
+    width: 100%;
+    color: #2c2d30;
+    word-wrap: break-word;
+}
