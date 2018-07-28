@@ -1,15 +1,16 @@
-CREATE TABLE Books(
-    Title nvarchar(200) NOT NULL PRIMARY KEY,
-    Text nvarchar(max)
+CREATE TABLE Products(
+    ID nvarchar(200) NOT NULL PRIMARY KEY,
+    Name nvarchar(200),
+    Description nvarchar(max)
 )
 
 CREATE FULLTEXT CATALOG SFWIsBoringCatalog
 
-CREATE FULLTEXT INDEX ON Books(Text)  
-KEY INDEX PK__Books__2CB664DD7ABDA210 ON SFWIsBoringCatalog
+CREATE FULLTEXT INDEX ON Products(Description)  
+KEY INDEX PK__Products__2CB664DD7ABDA210 ON SFWIsBoringCatalog
 WITH CHANGE_TRACKING AUTO
 
-INSERT INTO BOOKS -- A bunch of Charles Dickens Novels
+INSERT INTO Products -- A bunch of stuff
 
 
 --https://docs.microsoft.com/en-us/sql/t-sql/queries/contains-transact-sql?view=sql-server-2017
@@ -79,3 +80,13 @@ SELECT * FROM sys.dm_fts_parser ('FORMSOF( thesaurus, "good" )', 1033, 0, 0)
 select *
 from sys.fulltext_system_stopwords
 where language_id = 1033
+
+SELECT * FROM sys.dm_fts_parser ('FORMSOF( thesaurus, "metal" )', 1033, 0, 0)
+
+where display_term in(
+'foil',
+'aluminum',
+'bullion',
+'gold'
+)
+and phrase_id in (2,5,32,89)
