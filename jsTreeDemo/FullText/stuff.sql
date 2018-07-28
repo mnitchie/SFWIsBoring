@@ -1,5 +1,5 @@
-create table dbo.Books(
-    Title nvarchar(200) not null primary key,
+CREATE TABLE Books(
+    Title nvarchar(200) NOT NULL PRIMARY KEY,
     Text nvarchar(max)
 )
 
@@ -8,7 +8,8 @@ CREATE FULLTEXT CATALOG SFWIsBoringCatalog;
 CREATE FULLTEXT INDEX ON Books(Text)  
 KEY INDEX PK__Books__2CB664DD7ABDA210 ON SFWIsBoringCatalog
 WITH CHANGE_TRACKING AUTO
-GO
+
+INSERT INTO BOOKS -- A bunch of Charles Dickens Novels
 
 
 --https://docs.microsoft.com/en-us/sql/t-sql/queries/contains-transact-sql?view=sql-server-2017
@@ -70,5 +71,11 @@ sELECT * FROM sys.dm_fts_parser (' "The Microsoft business analysis" ', 1033, 0,
 sELECT * FROM sys.dm_fts_parser ('formsof(inflectional, "marriage")', 1033, 0, 0);
 sELECT * FROM sys.dm_fts_parser ('FORMSOF( freetext, "better" )', 1033, 0, 0);
 
-can make more interesting queries combining boolean expressions etc...
-ignore thesaurus and stopwords
+SELECT * FROM sys.dm_fts_parser ('FORMSOF( thesaurus, "good" )', 1033, 0, 0)
+
+-- can make more interesting queries combining boolean expressions etc...
+-- ignore thesaurus and stopwords
+
+select *
+from sys.fulltext_system_stopwords
+where language_id = 1033
