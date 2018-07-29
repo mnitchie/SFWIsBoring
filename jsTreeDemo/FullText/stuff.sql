@@ -1,5 +1,5 @@
 CREATE TABLE Products(
-    ID nvarchar(200) NOT NULL PRIMARY KEY,
+    ID int NOT NULL PRIMARY KEY,
     Name nvarchar(200),
     Description nvarchar(max)
 )
@@ -69,7 +69,7 @@ select * from sys.dm_fts_index_keywords_by_document
 order by occurrence_count desc
 
 sELECT * FROM sys.dm_fts_parser (' "The Microsoft business analysis" ', 1033, 0, 0);
-sELECT * FROM sys.dm_fts_parser ('formsof(inflectional, "marriage")', 1033, 0, 0);
+SELECT * FROM sys.dm_fts_parser ('formsof(inflectional, "marriage")', 1033, 0, 0);
 sELECT * FROM sys.dm_fts_parser ('FORMSOF( freetext, "better" )', 1033, 0, 0);
 
 SELECT * FROM sys.dm_fts_parser ('FORMSOF( thesaurus, "good" )', 1033, 0, 0)
@@ -90,3 +90,39 @@ where display_term in(
 'gold'
 )
 and phrase_id in (2,5,32,89)
+
+SELECT *
+FROM Products
+WHERE CONTAINS(Description, 'Mountain')
+
+SELECT *
+FROM Products
+WHERE CONTAINS(Description, 'Mountain OR Road')
+
+
+SELECT *
+FROM Products
+WHERE CONTAINS(Description, 'Wine*')
+
+SELECT *
+FROM Products
+WHERE CONTAINS(Description, 'NEAR((Bike, Control), 10, TRUE)')
+
+SELECT *
+FROM Products
+WHERE CONTAINS(Description, 'ISABOUT (
+    performance weight (.8),
+    comfortable weight (.4),
+    smooth weight (.2) )'
+)
+
+SELECT *
+FROM CONTAINSTABLE(SalesLT.ProductDescription, Description, 'ISABOUT (
+   performance weight (.8),
+   comfortable weight (.4),
+   smooth weight (.2) )'
+) as r
+join salesLT.ProductDescription pd on r.[KEY] = pd.ProductDescriptionID
+order by rank asc
+
+SELECT * FROM sys.dm_fts_parser ('FORMSOF(freetext, "bike")', 1033, 0, 0)
