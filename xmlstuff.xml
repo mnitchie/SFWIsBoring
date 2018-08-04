@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BrandingConfiguration>
+    <Brand>
+        <Name>self.conference</Name>
+        <ProductName>SFW Is Boring</ProductName>
+        <LogoPath>~/Images/selfconf.png</LogoPath>
+    </Brand>
+</BrandingConfiguration>
+
+

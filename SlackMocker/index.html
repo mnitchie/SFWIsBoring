@@ -1,38 +1,122 @@
 <!doctype html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="index.css">
-    </head>
-    <body>
-    <div class="message">
-            <div class="message-gutter">
-                <div class="image-container">
-                    <img src="coworker.png">
-                </div>
-            </div>
-            <div class="message-content">
-                <div class="message-content-header">
-                    <span class="sender">Captain Coworker</span>
-                    <span class="timestamp">12:29 PM</span>
-                </div>
-                <div class="message-body">I need you to do all of this really really hard stuff!</div>
-            </div>
-        </div>
 
+<head>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+
+<body>
         <div class="message">
-            <div class="message-gutter">
-                <div class="image-container">
-                    <img src="me.png">
+
+                <div class="message-gutter">
+                    <div class="image-container">
+                        <img src="coworker.png">
+                    </div>
+                </div>
+                <div class="message-content">
+                    <div class="message-content-header">
+                        <span class="sender">Captain Coworker</span>
+                        <span class="timestamp">12:29 PM</span>
+                    </div>
+                    <div class="message-body">A customer got confused once. Can we have some data to help explain it to them better next time this happens?</div>
                 </div>
             </div>
-            <div class="message-content">
-                <div class="message-content-header">
-                    <span class="sender">Mike Nitchie</span>
-                    <span class="timestamp">12:30 PM</span>
+        
+            <div class="message">
+                <div class="message-gutter">
+                    <div class="image-container">
+                        <img src="me.png">
+                    </div>
                 </div>
-                <div class="message-body">Whad do i doo???</div>
-                <div class="message-body">Whad do i doo???</div>
+                <div class="message-content">
+                    <div class="message-content-header">
+                        <span class="sender">Mike Nitchie</span>
+                        <span class="timestamp">12:33 PM</span>
+                    </div>
+                    <div class="message-body">Already done, boss 😀</div>
+                        
+                </div>
+            </div>
+    <!-- <div class="message">
+
+        <div class="message-gutter">
+            <div class="image-container">
+                <img src="coworker.png">
             </div>
         </div>
-    </body>
+        <div class="message-content">
+            <div class="message-content-header">
+                <span class="sender">Captain Coworker</span>
+                <span class="timestamp">12:29 PM</span>
+            </div>
+            <div class="message-body">A customer thinks that we changed their configurations, but we didn’t and can’t prove it to them. In the future <br /> we need to store each revision of changes, and a UI to display the diffs between any two revisions, who <br /> changed it, and when. Can we have that next week?</div>
+        </div>
+    </div>
+
+    <div class="message">
+        <div class="message-gutter">
+            <div class="image-container">
+                <img src="me.png">
+            </div>
+        </div>
+        <div class="message-content">
+            <div class="message-content-header">
+                <span class="sender">Mike Nitchie</span>
+                <span class="timestamp">12:33 PM</span>
+            </div>
+            <div class="message-body" style="font-size: 32px;">😧</div>
+            <div class="message-body">I mean... No? </div>
+            <div class="message-body">But I'll put it on the list. You might have it in 3 months.</div>
+                This is a pretty substantive new feature. Given our release schedule, after implementation and <br /> QA you might have it in 6 months</div>
+        </div>
+    </div> -->
+    <div id="footer_msgs">
+        <form id="msg_form" class="offline" onsubmit="TS.view.submit(); return false;" data-qa="message_form" role="complementary"
+            aria-labelledby="msg_input_aria_label">
+            <h1 id="msg_input_aria_label" class="offscreen">Message Input</h1>
+            <div class="msg_input_wrapper">
+
+                <div id="msg_input" data-qa="message_input" class="texty_legacy ql-container focus" data-contenteditable-override="true">
+                    <div id=editor class="ql-editor ql-blank" data-gramm="false" contenteditable="true" role="textbox" tabindex="1" aria-label="Message @Captain Coworker"
+                        aria-multiline="true" aria-autocomplete="list" aria-expanded="false" aria-owns="chat_input_tab_ui" spellcheck="true"
+                        autocorrect="off" autocomplete="off">
+                        <p id="textstuff">
+                            <br>
+                        </p>
+                    </div>
+                    <div class="ql-clipboard" contenteditable="true" tabindex="-1" aria-hidden="true" role="presentation"
+                        spellcheck="true" autocorrect="off" autocomplete="off"></div>
+                    <div class="ql-placeholder" aria-hidden="true" role="presentation" tabindex="-1" style="">Message @Captain Coworker</div>
+                </div>
+
+                <button type="button" id="primary_file_button" data-js="primary_file_button" class="btn_unstyle file_upload_btn" aria-label="File menu"
+                    tabindex="2" style="">
+                    <i class="fas fa-plus"></i>
+                </button>
+
+                <button type="button" id="main_emo_menu" class="btn_unstyle emo_menu" aria-label="Emoji menu" tabindex="4">
+                    <i class="far fa-smile"></i>
+                </button>
+
+                <button type="button" id="otherbutton" class="btn_unstyle msg_mentions_button" aria-label="Insert mention" tabindex="3">
+                    <i class="fas fa-at"></i>
+                </button>
+
+                <div id="msg_input_message">
+                    <span></span>
+                </div>
+
+                
+
+
+            </div>
+
+            
+
+        </form>
+    </div>
+    
+</body>
+
 </html>
