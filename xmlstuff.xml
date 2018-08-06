@@ -1,3 +1,40 @@
+CREATE TABLE Products(
+   ID int NOT NULL PRIMARY KEY,
+   Name nvarchar(200),
+   Description nvarchar(max)
+)
+
+CREATE FULLTEXT CATALOG SFWIsBoringCatalog
+
+CREATE FULLTEXT INDEX ON Products(Description) 
+KEY INDEX PK__Products__2CB664DD7ABDA210 ON SFWIsBoringCatalog
+WITH CHANGE_TRACKING AUTO
+
+
+CREATE TABLE configurations(
+   ID int PRIMARY KEY,
+   content xml
+)
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<BrandingConfiguration>
+   <Brand>
+       <Name>self.conference</Name>
+       <ProductName>SFW Is Boring</ProductName>
+       <LogoPath>~/Images/selfconf.png</LogoPath>
+   </Brand>
+</BrandingConfiguration>
+
+
+SELECT content
+    .query('(/BrandingConfiguration/Brand/Name)')
+    .value('.', 'varchar(max)')
+FROM configurations -- self.conference
+
+
+
 <?xml version="1.0" encoding="utf-8"?>
 <BrandingConfiguration>
     <Brand>
